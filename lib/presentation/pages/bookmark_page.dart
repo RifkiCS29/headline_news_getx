@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:headline_news_getx/common/state_enum.dart';
 import 'package:headline_news_getx/common/utils.dart';
 import 'package:headline_news_getx/domain/entities/article.dart';
-import 'package:headline_news_getx/injection.dart';
 import 'package:headline_news_getx/presentation/controllers/bookmark_article_controller/bookmark_article_controller.dart';
 import 'package:headline_news_getx/presentation/widgets/loading_article_list.dart';
 import 'package:headline_news_getx/presentation/widgets/widgets.dart';
@@ -17,7 +16,7 @@ class BookmarkPage extends StatefulWidget {
 
 class _BookmarkPageState extends State<BookmarkPage> with RouteAware {
   final BookmarkArticleController _bookmarkArticleController = Get.put(
-    BookmarkArticleController(locator()),
+    BookmarkArticleController(),
   );
 
   @override

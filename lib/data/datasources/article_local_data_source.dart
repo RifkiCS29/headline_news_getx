@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:headline_news_getx/common/exception.dart';
 import 'package:headline_news_getx/data/datasources/db/database_helper.dart';
 import 'package:headline_news_getx/data/models/article_table.dart';
@@ -14,9 +15,7 @@ abstract class ArticleLocalDataSource {
 }
 
 class ArticleLocalDataSourceImpl implements ArticleLocalDataSource {
-  final DatabaseHelper databaseHelper;
-
-  ArticleLocalDataSourceImpl({required this.databaseHelper});
+  final DatabaseHelper databaseHelper = Get.find();
 
   @override
   Future<String> insertBookmarkArticle(ArticleTable article) async {
@@ -57,7 +56,10 @@ class ArticleLocalDataSourceImpl implements ArticleLocalDataSource {
   @override
   Future<void> cacheTopHeadlineArticles(List<ArticleTable> articles) async {
     await databaseHelper.clearCacheArticles('top headline');
-    await databaseHelper.insertCacheTransactionArticles(articles, 'top headline');
+    await databaseHelper.insertCacheTransactionArticles(
+      articles,
+      'top headline',
+    );
   }
 
   @override
@@ -71,9 +73,14 @@ class ArticleLocalDataSourceImpl implements ArticleLocalDataSource {
   }
 
   @override
-  Future<void> cacheHeadlineBusinessArticles(List<ArticleTable> articles) async {
+  Future<void> cacheHeadlineBusinessArticles(
+    List<ArticleTable> articles,
+  ) async {
     await databaseHelper.clearCacheArticles('headline business');
-    await databaseHelper.insertCacheTransactionArticles(articles, 'headline business');
+    await databaseHelper.insertCacheTransactionArticles(
+      articles,
+      'headline business',
+    );
   }
 
   @override

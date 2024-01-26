@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
+import 'package:get/get.dart';
 import 'package:headline_news_getx/common/network_info.dart';
 import 'package:headline_news_getx/data/datasources/article_local_data_source.dart';
 import 'package:headline_news_getx/data/datasources/article_remote_data_source.dart';
@@ -12,15 +13,11 @@ import 'package:headline_news_getx/common/exception.dart';
 import 'package:headline_news_getx/common/failure.dart';
 
 class ArticleRepositoryImpl implements ArticleRepository {
-  final ArticleRemoteDataSource remoteDataSource;
-  final ArticleLocalDataSource localDataSource;
-  final NetworkInfo networkInfo;
-
-  ArticleRepositoryImpl({
-    required this.remoteDataSource,
-    required this.localDataSource,
-    required this.networkInfo,
-  });
+  final ArticleRemoteDataSource remoteDataSource =
+      Get.find<ArticleRemoteDataSource>();
+  final ArticleLocalDataSource localDataSource =
+      Get.find<ArticleLocalDataSource>();
+  final NetworkInfo networkInfo = Get.find<NetworkInfo>();
 
   @override
   Future<Either<Failure, List<Article>>> getTopHeadlineArticles() async {

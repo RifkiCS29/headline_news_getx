@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:headline_news_getx/common/config.dart';
 import 'package:headline_news_getx/common/state_enum.dart';
 import 'package:headline_news_getx/common/theme.dart';
-import 'package:headline_news_getx/injection.dart';
 import 'package:headline_news_getx/presentation/controllers/search_article_controller/search_article_controller.dart';
 import 'package:headline_news_getx/presentation/widgets/initial.dart';
 import 'package:headline_news_getx/presentation/widgets/loading_article_list.dart';
@@ -31,7 +30,7 @@ class _SearchPageState extends State<SearchPage>
   int totalPage = 0;
 
   final SearchArticleController _searchArticleController = Get.put(
-    SearchArticleController(locator()),
+    SearchArticleController(),
   );
 
   @override

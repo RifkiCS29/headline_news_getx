@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:get/get.dart';
 import 'package:headline_news_getx/common/config.dart';
 import 'package:headline_news_getx/data/models/article_response.dart';
 import 'package:headline_news_getx/common/exception.dart';
@@ -13,9 +14,7 @@ abstract class ArticleRemoteDataSource {
 }
 
 class ArticleRemoteDataSourceImpl implements ArticleRemoteDataSource {
-  final http.Client client;
-
-  ArticleRemoteDataSourceImpl({required this.client});
+  final http.Client client = Get.find();
 
   @override
   Future<ArticleResponse> getTopHeadlineArticles() async {

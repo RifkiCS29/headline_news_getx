@@ -4,11 +4,7 @@ import 'package:headline_news_getx/domain/entities/article.dart';
 import 'package:headline_news_getx/domain/usecases/get_article_category.dart';
 
 class ArticleCategoryController extends GetxController {
-  final GetArticleCategory _getArticleCategory;
-
-  ArticleCategoryController(
-    this._getArticleCategory,
-  );
+  final GetArticleCategory _getArticleCategory = Get.find<GetArticleCategory>();
 
   RxList<Article> dataArticleCategory = <Article>[].obs;
   Rx<RequestState> articleCategoryState =

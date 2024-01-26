@@ -5,13 +5,10 @@ import 'package:headline_news_getx/domain/usecases/get_headline_business_article
 import 'package:headline_news_getx/domain/usecases/get_top_headline_articles.dart';
 
 class ArticleListController extends GetxController {
-  final GetTopHeadlineArticles _getTopHeadlineArticles;
-  final GetHeadlineBusinessArticles _getHeadlineBusinessArticles;
-
-  ArticleListController(
-    this._getTopHeadlineArticles,
-    this._getHeadlineBusinessArticles,
-  );
+  final GetTopHeadlineArticles _getTopHeadlineArticles =
+      Get.find<GetTopHeadlineArticles>();
+  final GetHeadlineBusinessArticles _getHeadlineBusinessArticles =
+      Get.find<GetHeadlineBusinessArticles>();
 
   @override
   void onInit() {

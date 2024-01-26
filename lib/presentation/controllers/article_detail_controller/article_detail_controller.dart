@@ -5,18 +5,14 @@ import 'package:headline_news_getx/domain/usecases/remove_bookmark_article.dart'
 import 'package:headline_news_getx/domain/usecases/save_bookmark_article.dart';
 
 class ArticleDetailController extends GetxController {
-  final GetBookmarkStatus getBookmarkStatus;
-  final SaveBookmarkArticle saveBookmarkArticle;
-  final RemoveBookmarkArticle removeBookmarkArticle;
+  final GetBookmarkStatus getBookmarkStatus = Get.find<GetBookmarkStatus>();
+  final SaveBookmarkArticle saveBookmarkArticle =
+      Get.find<SaveBookmarkArticle>();
+  final RemoveBookmarkArticle removeBookmarkArticle =
+      Get.find<RemoveBookmarkArticle>();
 
   RxString bookmarkMessage = ''.obs;
   RxBool isAddedToBookmark = false.obs;
-
-  ArticleDetailController(
-    this.getBookmarkStatus,
-    this.saveBookmarkArticle,
-    this.removeBookmarkArticle,
-  );
 
   Future<void> addToBookmark(Article article) async {
     final result = await saveBookmarkArticle.execute(article);

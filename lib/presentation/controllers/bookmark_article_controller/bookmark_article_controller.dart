@@ -4,11 +4,8 @@ import 'package:headline_news_getx/domain/entities/article.dart';
 import 'package:headline_news_getx/domain/usecases/get_bookmark_articles.dart';
 
 class BookmarkArticleController extends GetxController {
-  final GetBookmarkArticles _getBookmarkArticles;
-
-  BookmarkArticleController(
-    this._getBookmarkArticles,
-  );
+  final GetBookmarkArticles _getBookmarkArticles =
+      Get.find<GetBookmarkArticles>();
 
   Rx<List<Article>?> dataBookmark = Rx<List<Article>?>(null);
   Rx<RequestState> bookmarkArticleState =

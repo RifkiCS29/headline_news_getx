@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:headline_news_getx/common/state_enum.dart';
 import 'package:headline_news_getx/common/theme.dart';
-import 'package:headline_news_getx/injection.dart';
 import 'package:headline_news_getx/presentation/controllers/article_list_controller/article_list_controller.dart';
 import 'package:headline_news_getx/presentation/widgets/loading_article_card.dart';
 import 'package:headline_news_getx/presentation/widgets/loading_article_list.dart';
@@ -15,7 +14,7 @@ class ArticlePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScaffold(
       body: GetBuilder<ArticleListController>(
-        init: ArticleListController(locator(), locator()),
+        init: ArticleListController(),
         builder: (articleController) => RefreshIndicator(
           onRefresh: () async {
             await Future.delayed(const Duration(seconds: 1));

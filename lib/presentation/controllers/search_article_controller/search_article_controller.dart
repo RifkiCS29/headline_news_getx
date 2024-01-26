@@ -4,15 +4,13 @@ import 'package:headline_news_getx/domain/entities/article.dart';
 import 'package:headline_news_getx/domain/usecases/search_articles.dart';
 
 class SearchArticleController extends GetxController {
-  final SearchArticles _searchArticles;
+  final SearchArticles _searchArticles = Get.find<SearchArticles>();
 
   RxList<Article> articles = <Article>[].obs;
   Rx<RequestState> state = Rx<RequestState>(RequestState.initial);
   Rx<int> totalResult = 0.obs;
   Rx<int> currentPage = 1.obs;
   Rx<String> message = ''.obs;
-
-  SearchArticleController(this._searchArticles);
 
   void onQueryChanged(String query) async {
     if (query.isEmpty) {
